@@ -20,26 +20,6 @@ public class PartModuleService {
     public Object GetData(){
 //        RestTemplate restTemplate = new RestTemplate();
         Response data = new Response();
-//        UriComponents uriComponents = UriComponentsBuilder.fromUriString(Common.DEV.getUrl())
-//                .build()
-//                .expand("dodo").encode();
-//
-//        URI uri = uriComponents.toUri();
-//        HttpHeaders headers = new HttpHeaders();
-//
-//        // Tạo HttpHeaders và thêm header vào đó nếu có
-//        if(CustomHeaderEnum.X_RAPIDAPI_KEY.getHeaderName() != null){
-//            headers.set(CustomHeaderEnum.X_RAPIDAPI_KEY.getHeaderName(), CustomHeaderEnum.X_RAPIDAPI_KEY.getHeaderValue());
-//            headers.set(CustomHeaderEnum.X_RAPIDAPI_HOST.getHeaderName(), CustomHeaderEnum.X_RAPIDAPI_HOST.getHeaderValue());
-//            // Tạo HttpEntity với HttpHeaders
-//            HttpEntity<String> entity = new HttpEntity<>(headers);
-//            responseEntity  = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        }
-//        else{
-//            HttpEntity<String> entity = new HttpEntity<>(headers);
-//            responseEntity  = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        }
-//        return responseEntity.getBody();
         // Thực hiện yêu cầu HTTP GET
         try{
             HttpResponse<JsonNode> jsonResponse = Unirest.get(Common.DEV.getUrl())

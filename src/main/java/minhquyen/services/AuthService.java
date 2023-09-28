@@ -46,8 +46,8 @@ public class AuthService {
             ObjectMapper objectMapper = new ObjectMapper();
             response = objectMapper.readValue(responseBody.getObject().toString(), ResponseObject.class);
 
-            _tokenService.saveTokenWithExpiration(response.getAuthorizationResult().getToken(), response.getAuthorizationResult().getToken(),86400);
-            String token =  _tokenService.getToken(response.getAuthorizationResult().getToken());
+//            _tokenService.saveTokenWithExpiration(response.getAuthorizationResult().getToken(), response.getAuthorizationResult().getToken(),86400);
+//            String token =  _tokenService.getToken(response.getAuthorizationResult().getToken());
 
             return response;
         } catch (Exception e) {

@@ -1,8 +1,6 @@
 package minhquyen.controller;
 
 import io.swagger.annotations.ApiOperation;
-import lombok.RequiredArgsConstructor;
-import minhquyen.modals.Response;
 import minhquyen.modals.ResponseObject;
 import minhquyen.modals.User;
 import minhquyen.services.AuthService;
