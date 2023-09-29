@@ -23,14 +23,14 @@ public class AuthService {
         _restTemplate = restTemplate;
         _tokenService = tokenService;
     }
-    public ResponseObject Login(User user) {
+    public ResponseObject Login() {
         ResponseObject response = new ResponseObject();
         try {
             // Dữ liệu gửi trong yêu cầu
             JSONObject requestBody = new JSONObject();
-            requestBody.put("username", user.username);
-            requestBody.put("password", user.password);
-            requestBody.put("scope", user.password);
+            requestBody.put("username", Common.USERNAME.getinfo());
+            requestBody.put("password", Common.PASSWORD.getinfo());
+            requestBody.put("scope", Common.SCOPE.getinfo());
 
             // Thực hiện yêu cầu HTTP POST
             HttpResponse<JsonNode> jsonResponse = Unirest.post(Common.LOGIN.getUrl())

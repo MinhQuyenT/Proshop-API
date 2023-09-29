@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/login")
+@RequestMapping("/api/beginsession")
 public class AuthController {
 
     private final AuthService _auth;
@@ -20,8 +20,8 @@ public class AuthController {
 
     @PostMapping()
     @ApiOperation("Login")
-    public ResponseObject Login(@RequestBody User user){
-        ResponseObject data = _auth.Login(user);
+    public ResponseObject Login(){
+        ResponseObject data = _auth.Login();
         return data;
     }
 
