@@ -8,11 +8,11 @@ import java.util.Date;
 @Data
 public class AuthorizationResult {
     @JsonProperty("fileAccessSecurityGroup")
-    private Object fileAccessSecurityGroup;
+    private String fileAccessSecurityGroup;
     @JsonProperty("sessionValidForSeconds")
     private Number sessionValidForSeconds;
     @JsonProperty("sessionValidFrom")
-    private Date sessionValidFrom;
+    private String sessionValidFrom;
     @JsonProperty("userName")
     private String userName;
     @JsonProperty("userGroup")

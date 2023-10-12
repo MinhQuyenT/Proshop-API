@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/beginsession")
 public class AuthController {
-
     private final AuthService _auth;
 
     @Autowired

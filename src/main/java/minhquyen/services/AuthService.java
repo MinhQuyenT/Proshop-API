@@ -1,6 +1,7 @@
 package minhquyen.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
+import lombok.RequiredArgsConstructor;
 import minhquyen.helpers.Common;
 import minhquyen.modals.AuthorizationResult;
 import minhquyen.modals.Response;
@@ -16,12 +17,12 @@ import org.springframework.http.HttpStatus;
 
 @Service
 public class AuthService {
-    private  final RestTemplate _restTemplate;
-    private  final TokenService _tokenService;
+
+    private final RedisService _redisService;
+
     @Autowired
-    public AuthService(RestTemplate restTemplate, TokenService tokenService){
-        _restTemplate = restTemplate;
-        _tokenService = tokenService;
+    public AuthService( RedisService redisService){
+        _redisService = redisService;
     }
     public ResponseObject Login() {
         ResponseObject response = new ResponseObject();
@@ -46,9 +47,7 @@ public class AuthService {
             ObjectMapper objectMapper = new ObjectMapper();
             response = objectMapper.readValue(responseBody.getObject().toString(), ResponseObject.class);
 
-//            _tokenService.saveTokenWithExpiration(response.getAuthorizationResult().getToken(), response.getAuthorizationResult().getToken(),86400);
-//            String token =  _tokenService.getToken(response.getAuthorizationResult().getToken());
-
+            _redisService.setValue("token", response.getAuthorizationResult().getToken());
             return response;
         } catch (Exception e) {
             throw new RuntimeException(e);
